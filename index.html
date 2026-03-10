@@ -160,32 +160,52 @@
                 </div>
             </div>
 
-            <!-- START ADDITION: Penjelasan Sabtu vs H-1 -->
-            <div class="mt-8 bg-blue-50 p-6 rounded-2xl border-2 border-dashed border-softBlue-400 shadow-sm">
-                <h4 class="font-black text-softBlue-800 text-lg md:text-xl mb-4 flex items-start gap-3">
-                    <i class="fa-solid fa-circle-question text-3xl text-softBlue-500 mt-1"></i>
-                    FAQ: "Kak, kalau Sabtu udah lapor di WA, ngapain H-1 isi G-Form lagi?"
-                </h4>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div class="bg-white p-4 rounded-xl shadow-sm border-l-8 border-softBlue-500">
-                        <p class="font-black text-gray-800 mb-2 flex items-center gap-2">
-                            <i class="fa-solid fa-wallet text-softBlue-500"></i> Lapor Sabtu = Booking Dana
-                        </p>
-                        <p class="text-sm text-gray-600 font-semibold leading-relaxed">
-                            Bendum pegang uang besar, tapi tidak selalu <i>ready</i> di satu rekening. Laporan Sabtu sangat membantu Bendum buat <b>menyiapkan saldo (manajemen cashflow)</b> untuk total pengeluaran divisimu seminggu ke depan.
-                        </p>
+            <!-- ================= NEW FAQ BUBBLE ADDED HERE ================= -->
+            <div class="mt-12 bg-white/60 rounded-3xl p-6 md:p-8 border-4 border-dashed border-softBlue-300 relative">
+                <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-white px-5 py-2 rounded-full border-4 border-softBlue-300 shadow-sm font-black text-softBlue-800 flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-comments text-softYellow-400"></i> Pojok Tanya Jawab 💭
+                </div>
+                
+                <div class="flex flex-col gap-6 mt-4">
+                    <!-- Tanya (User) -->
+                    <div class="flex items-end gap-3 w-full md:w-5/6">
+                        <div class="text-4xl md:text-5xl mb-2 drop-shadow-md">🤷‍♀️</div>
+                        <div class="bg-white p-4 rounded-3xl rounded-bl-none border-2 border-gray-200 shadow-md relative">
+                            <p class="text-gray-800 font-bold text-sm md:text-base leading-relaxed">
+                                "Kak Bendum, aturan <span class="text-softBlue-600 bg-softBlue-50 px-1 rounded">Hari Sabtu</span> sama <span class="text-softBlue-600 bg-softBlue-50 px-1 rounded">H-1</span> itu maksudnya gimana sih detailnya? Terus format lapor konfirmasinya kaya gimana? 💭"
+                            </p>
+                        </div>
                     </div>
-                    <div class="bg-white p-4 rounded-xl shadow-sm border-l-8 border-red-500">
-                        <p class="font-black text-gray-800 mb-2 flex items-center gap-2">
-                            <i class="fa-solid fa-file-invoice-dollar text-red-500"></i> G-Form H-1 = Cairkan Dana
-                        </p>
-                        <p class="text-sm text-gray-600 font-semibold leading-relaxed">
-                            Harga barang bisa berubah. G-Form menjadi <b>data final (Fix)</b> sebelum uang ditransfer dan otomatis masuk <i>spreadsheet</i> untuk arsip digital LPJ. Chat WA sangat rawan tenggelam dan susah dilacak!
-                        </p>
+                    
+                    <!-- Jawab (Bendum) -->
+                    <div class="flex items-end gap-3 w-full md:w-11/12 self-end flex-row-reverse">
+                        <div class="text-4xl md:text-5xl mb-2 drop-shadow-md">👩‍💻</div>
+                        <div class="bg-softBlue-100 p-5 rounded-3xl rounded-br-none border-2 border-softBlue-300 shadow-md relative w-full">
+                            <p class="text-gray-800 font-semibold mb-4 text-sm md:text-base leading-relaxed">
+                                Gini bestie! ✨ Setiap hari <strong>Sabtu</strong>, kamu WAJIB mendata apa aja yang mau dibeli divisimu untuk <strong>1 minggu ke depan</strong>.<br><br>
+                                Dan ingat, batas akhir kasih list itu <strong>H-1 sebelum hari pembelanjaan</strong>. Kalau mau belanja hari Minggu, hari Sabtu udah harus ngelist ya! Jangan dadakan! 💖<br><br>
+                                Buat laporannya, pake format ini terus kirim ke grup Sekbendiv ya 👇
+                            </p>
+                            
+                            <!-- Format Card -->
+                            <div class="bg-white p-5 rounded-2xl border-2 border-softBlue-200 shadow-sm">
+                                <p class="font-black text-softBlue-800 mb-3 border-b-2 border-softBlue-100 pb-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-clipboard-list"></i> Format Konfirmasi Pembelian:
+                                </p>
+                                <div class="font-mono text-sm md:text-base text-gray-700 space-y-2">
+                                    <p><span class="font-bold text-softBlue-800">Divisi</span> : ...</p>
+                                    <p><span class="font-bold text-softBlue-800">Rincian Pembelian</span> : <br>&nbsp;&nbsp;a. (Nama barang + harga)<br>&nbsp;&nbsp;b. ...</p>
+                                    <p><span class="font-bold text-softBlue-800">Total Anggaran</span> : Rp ...</p>
+                                    <p><span class="font-bold text-softBlue-800">Penanggung Jawab</span> : (Nama, No. Wa)</p>
+                                    <p><span class="font-bold text-softBlue-800">Waktu Pembelian</span> : ...</p>
+                                    <p><span class="font-bold text-softBlue-800">No. Rek PJ</span> : ...</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- END ADDITION -->
+            <!-- ================= END NEW FAQ ================= -->
 
         </section>
 
@@ -249,7 +269,7 @@
             </div>
         </section>
 
-        <!-- SECTION 5: PENJELASAN NAMA AKUN (NEW) -->
+        <!-- SECTION 5: PENJELASAN NAMA AKUN -->
         <section id="nama-akun" class="bg-gradient-to-r from-softBlue-800 to-softBlue-600 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden">
             <div class="absolute -right-5 top-5 text-7xl opacity-20"><i class="fa-solid fa-folder-tree"></i></div>
             <div class="relative z-10">
