@@ -11,49 +11,14 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Tailwind Config for Custom Colors & Animations -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Nunito', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Nunito', 'sans-serif'] },
                     colors: {
-                        softBlue: {
-                            100: '#E0F2FE',
-                            200: '#BAE6FD',
-                            500: '#0EA5E9',
-                            800: '#075985',
-                        },
-                        softYellow: {
-                            100: '#FEF9C3',
-                            300: '#FDE047',
-                            400: '#FACC15',
-                            800: '#854D0E',
-                        }
-                    },
-                    animation: {
-                        'bounce-slow': 'bounce 3s infinite',
-                        'float': 'float 4s ease-in-out infinite',
-                        'float-delayed': 'float 5s ease-in-out infinite 2s',
-                        'wiggle': 'wiggle 2.5s ease-in-out infinite',
-                        'spin-slow': 'spin 8s linear infinite',
-                        'pulse-glow': 'pulse-glow 3s ease-in-out infinite'
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-15px)' },
-                        },
-                        wiggle: {
-                            '0%, 100%': { transform: 'rotate(-10deg)' },
-                            '50%': { transform: 'rotate(10deg)' },
-                        },
-                        'pulse-glow': {
-                            '0%, 100%': { opacity: 0.6, transform: 'scale(1)' },
-                            '50%': { opacity: 1, transform: 'scale(1.1)' },
-                        }
+                        softBlue: { 50: '#F0F9FF', 100: '#E0F2FE', 200: '#BAE6FD', 500: '#0EA5E9', 800: '#075985' },
+                        softYellow: { 50: '#FEFCE8', 100: '#FEF9C3', 300: '#FDE047', 400: '#FACC15', 800: '#854D0E' }
                     }
                 }
             }
@@ -61,323 +26,328 @@
     </script>
 
     <style>
-        /* Latar belakang gradasi alus tanpa polkadot */
+        /* Base Styling & Fixing Scroll Bug */
         body {
-            background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%);
-            min-height: 100vh;
+            background-color: #E0F2FE; /* Solid Soft Blue, NO POLKADOT */
+            overflow-x: hidden; /* Fixes horizontal scroll bug from floating elements */
+            scroll-behavior: smooth;
         }
 
-        /* Smooth Scroll */
-        html { scroll-behavior: smooth; }
-
-        /* Glassmorphism utility */
         .glass-card {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
 
         .hover-scale {
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
         }
-        
         .hover-scale:hover {
-            transform: scale(1.05) translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transform: scale(1.03) translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
         }
+
+        /* Custom Floating Animations */
+        @keyframes float-up {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        @keyframes float-down {
+            0%, 100% { transform: translateY(0) rotate(10deg); }
+            50% { transform: translateY(20px) rotate(-10deg); }
+        }
+        @keyframes float-side {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            50% { transform: translateX(15px) rotate(15deg); }
+        }
+
+        .anim-float-1 { animation: float-up 4s ease-in-out infinite; }
+        .anim-float-2 { animation: float-down 5s ease-in-out infinite; }
+        .anim-float-3 { animation: float-side 6s ease-in-out infinite; }
     </style>
 </head>
-<body class="text-gray-700 antialiased pt-10 pb-20 px-4 md:px-8 overflow-x-hidden">
+<body class="text-gray-800 antialiased pt-10 pb-20 px-4 md:px-8 relative">
 
-    <!-- Animasi Dekorasi Bergerak (Buku, Pensil, Bintang, dll) -->
-    <div class="fixed top-16 right-10 text-6xl animate-wiggle pointer-events-none z-0 opacity-80">✏️</div>
-    <div class="fixed top-1/4 left-5 text-6xl animate-float-delayed pointer-events-none z-0 opacity-80">📖</div>
-    <div class="fixed bottom-1/4 right-8 text-5xl animate-spin-slow pointer-events-none z-0 text-yellow-400 opacity-80">⭐</div>
-    <div class="fixed top-1/2 left-12 text-4xl animate-pulse-glow pointer-events-none z-0 text-yellow-500 opacity-80">✨</div>
-    <div class="fixed bottom-10 left-10 text-6xl animate-float pointer-events-none z-0 opacity-60">☁️</div>
+    <!-- Animasi Latar Belakang (Fixed agar tidak ngebug scroll) -->
+    <div class="fixed top-20 left-10 text-5xl text-softYellow-400 opacity-40 anim-float-1 pointer-events-none z-0"><i class="fa-solid fa-pencil"></i></div>
+    <div class="fixed bottom-40 left-16 text-6xl text-softBlue-500 opacity-30 anim-float-2 pointer-events-none z-0"><i class="fa-solid fa-book-open"></i></div>
+    <div class="fixed top-40 right-10 text-5xl text-yellow-500 opacity-50 anim-float-3 pointer-events-none z-0"><i class="fa-solid fa-star"></i></div>
+    <div class="fixed bottom-20 right-20 text-4xl text-blue-400 opacity-40 anim-float-1 pointer-events-none z-0" style="animation-delay: 1s;"><i class="fa-solid fa-calculator"></i></div>
 
     <main class="max-w-4xl mx-auto relative z-10 space-y-12">
 
         <!-- SECTION 1: Welcome & Tupoksi -->
-        <section id="welcome" class="text-center space-y-6 animate-fade-in-up">
-            <div class="inline-block bg-white px-6 py-2 rounded-full text-softBlue-800 font-bold tracking-wider shadow-sm mb-4 border-2 border-softBlue-200 hover-scale">
-                ✨ PANDUAN RESMI ✨
+        <section id="welcome" class="text-center space-y-6">
+            <div class="inline-block bg-white px-6 py-2 rounded-full text-softBlue-800 font-bold tracking-wider shadow-sm mb-2 border-2 border-softBlue-200 uppercase">
+                ✨ Panduan Resmi Keuangan ✨
             </div>
-            <h1 class="text-4xl md:text-6xl font-black text-softBlue-800 drop-shadow-md leading-tight">
+            <h1 class="text-4xl md:text-6xl font-black text-softBlue-800 drop-shadow-sm leading-tight">
                 Financial Fun-tastic<br>
-                <span class="text-softYellow-400 stroke-text">Edeldis 2026!</span>
+                <span class="text-softYellow-400" style="text-shadow: 2px 2px 0 #854D0E;">Edeldis 2026! 🚀</span>
             </h1>
             
-            <div class="glass-card rounded-3xl p-8 shadow-xl mt-8 hover-scale text-left relative overflow-hidden">
-                <div class="absolute -right-10 -top-10 text-9xl opacity-10">💼</div>
-                <h2 class="text-2xl font-bold text-softBlue-800 mb-4 flex items-center gap-3">
-                    <i class="fa-solid fa-clipboard-user text-softYellow-400 animate-bounce"></i> Tupoksi Bendahara Divisi
+            <div class="glass-card rounded-3xl p-8 mt-8 hover-scale text-left border-t-8 border-t-softBlue-500">
+                <h2 class="text-2xl font-black text-softBlue-800 mb-4 flex items-center gap-3">
+                    <i class="fa-solid fa-user-shield text-softBlue-500 text-3xl"></i> TUPOKSI BENDAHARA DIVISI
                 </h2>
-                <p class="text-lg leading-relaxed text-gray-700">
-                    Sebagai pahlawan keuangan divisi, kamu bertanggung jawab atas:
+                <p class="text-lg font-semibold text-gray-700 mb-4 bg-softBlue-50 p-3 rounded-lg border-l-4 border-softBlue-500">
+                    Sebagai pahlawan keuangan divisi, tugas utamamu <strong>SANGAT KRUSIAL</strong> untuk kelancaran proker:
                 </p>
-                <ul class="mt-4 space-y-3">
+                <ul class="space-y-4 text-gray-800">
                     <li class="flex items-start gap-3">
-                        <span class="bg-softBlue-100 text-softBlue-800 p-1 rounded-lg mt-1"><i class="fa-solid fa-check"></i></span>
-                        <span>Mendata kebutuhan anggaran divisi secara akurat.</span>
+                        <span class="text-softBlue-500 mt-1 text-xl"><i class="fa-solid fa-square-check"></i></span>
+                        <div><strong>Pendataan Anggaran:</strong> Bertanggung jawab penuh mendata kebutuhan anggaran divisinya agar terencana dengan baik.</div>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="bg-softBlue-100 text-softBlue-800 p-1 rounded-lg mt-1"><i class="fa-solid fa-check"></i></span>
-                        <span>Memastikan keaslian dan kelengkapan bukti belanja (nota/kwitansi).</span>
+                        <span class="text-softBlue-500 mt-1 text-xl"><i class="fa-solid fa-square-check"></i></span>
+                        <div><strong>Validasi Bukti Belanja:</strong> WAJIB memastikan keaslian, kejelasan, dan kelengkapan bukti belanja (seperti nota & kwitansi) sesuai standar.</div>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="bg-softBlue-100 text-softBlue-800 p-1 rounded-lg mt-1"><i class="fa-solid fa-check"></i></span>
-                        <span>Mengoordinasikan pelaporan keuangan secara transparan kepada Bendahara Umum.</span>
+                        <span class="text-softBlue-500 mt-1 text-xl"><i class="fa-solid fa-square-check"></i></span>
+                        <div><strong>Koordinasi & Pelaporan:</strong> Mengoordinasikan laporan keuangan divisinya kepada Bendahara Umum (Naila & Ririn) secara disiplin dan transparan.</div>
                     </li>
                 </ul>
             </div>
         </section>
 
-        <!-- SECTION 2: Mekanisme Pengajuan (One-Gate System) -->
-        <section id="mekanisme" class="glass-card rounded-3xl p-8 md:p-12 shadow-xl border-t-8 border-t-softYellow-400 relative">
-            <div class="absolute -left-6 top-10 text-5xl animate-bounce-slow">🚀</div>
-            <div class="text-center mb-10">
-                <span class="bg-softYellow-300 text-yellow-900 font-bold px-4 py-1 rounded-full text-sm mb-4 inline-block">PERUBAHAN 2026</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-softBlue-800">Mekanisme Pengajuan Dana</h2>
-                <p class="text-xl mt-3 font-semibold text-gray-600">One-Gate System 🚪</p>
-                <div class="bg-red-100 text-red-700 p-4 rounded-xl mt-4 inline-block font-bold border-2 border-red-200">
-                    ⚠️ Tahun 2026 pengajuan WAJIB via G-Form, TIDAK LAGI lewat chat WhatsApp!
+        <!-- SECTION 2: Mekanisme Pengajuan -->
+        <section id="mekanisme" class="glass-card rounded-3xl p-8 md:p-10 border-t-8 border-t-red-500">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-black text-gray-900 uppercase">Mekanisme Pengajuan Dana</h2>
+                <p class="text-xl font-bold text-softBlue-800 mt-2">Sistem 1 Pintu (One-Gate System)</p>
+                
+                <div class="bg-red-100 text-red-800 p-5 rounded-2xl mt-5 font-black text-lg border-2 border-red-300 shadow-sm animate-pulse">
+                    <i class="fa-solid fa-triangle-exclamation text-2xl mr-2"></i> 
+                    PERHATIAN: MULAI 2026 PENGAJUAN WAJIB VIA G-FORM!<br>
+                    <span class="text-red-600">TIDAK ADA LAGI PENGAJUAN LEWAT CHAT WA!</span>
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-10 items-center">
-                <!-- QR Code & Button -->
-                <div class="text-center space-y-6 bg-white p-6 rounded-3xl shadow-md border-2 border-softBlue-100 hover-scale">
-                    <h3 class="font-bold text-xl text-softBlue-800">Scan atau Klik Form Di Sini 👇</h3>
-                    <img src="https://i.ibb.co.com/bwXDm71/Pengajuan-Dana-Edeldis-2026.png" alt="QR Code Pengajuan Dana Edeldis 2026" class="w-56 h-56 mx-auto rounded-2xl shadow-sm border-4 border-softYellow-300">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmIZn2F7XoehgpxZPFh76TKE0p0-H0ozRpvDcggQT3MVemTg/viewform?usp=preview" target="_blank" rel="noopener noreferrer" class="block w-full bg-softBlue-500 hover:bg-softBlue-800 text-white font-bold text-lg py-4 px-6 rounded-2xl transition duration-300 shadow-lg transform hover:-translate-y-1">
-                        <i class="fa-solid fa-paper-plane mr-2 animate-pulse"></i> Isi Form Pengajuan
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <!-- QR Code & Link -->
+                <div class="text-center bg-white p-6 rounded-3xl shadow border-2 border-gray-200 hover-scale">
+                    <h3 class="font-bold text-xl text-gray-800 mb-4">Scan / Klik Form Pengajuan 👇</h3>
+                    <img src="https://i.ibb.co.com/bwXDm71/Pengajuan-Dana-Edeldis-2026.png" alt="QR Code Form Pengajuan Dana" class="w-48 h-48 mx-auto rounded-2xl shadow-sm border-4 border-softBlue-200 mb-4">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmIZn2F7XoehgpxZPFh76TKE0p0-H0ozRpvDcggQT3MVemTg/viewform?usp=preview" target="_blank" rel="noopener noreferrer" class="block w-full bg-softBlue-600 hover:bg-softBlue-800 text-white font-black text-lg py-4 px-6 rounded-2xl shadow-lg transition transform hover:-translate-y-1">
+                        <i class="fa-solid fa-link mr-2"></i> ISI G-FORM SEKARANG
                     </a>
                 </div>
 
                 <!-- Timeline Info -->
-                <div class="space-y-6">
-                    <div class="bg-softBlue-50 p-5 rounded-2xl border-l-4 border-softBlue-500 shadow-sm flex gap-4 hover-scale">
-                        <div class="text-3xl mt-1">🗓️</div>
+                <div class="space-y-4">
+                    <div class="bg-white p-5 rounded-2xl border-l-8 border-softBlue-500 shadow-sm flex items-center gap-4">
+                        <div class="text-3xl text-softBlue-500"><i class="fa-solid fa-calendar-week"></i></div>
                         <div>
-                            <h4 class="font-bold text-lg text-softBlue-800">Pendataan Mingguan</h4>
-                            <p class="text-gray-600">Setiap <strong>hari Sabtu</strong> untuk pendataan 1 minggu ke depan.</p>
+                            <h4 class="font-black text-gray-800 uppercase">Setiap Hari Sabtu</h4>
+                            <p class="text-gray-600 font-semibold">Pendataan untuk kebutuhan 1 minggu ke depan.</p>
                         </div>
                     </div>
-                    <div class="bg-softYellow-100 p-5 rounded-2xl border-l-4 border-softYellow-400 shadow-sm flex gap-4 hover-scale">
-                        <div class="text-3xl mt-1">⏰</div>
+                    <div class="bg-white p-5 rounded-2xl border-l-8 border-softYellow-400 shadow-sm flex items-center gap-4">
+                        <div class="text-3xl text-yellow-500"><i class="fa-solid fa-hourglass-half"></i></div>
                         <div>
-                            <h4 class="font-bold text-lg text-yellow-800">Batas Pengisian Form</h4>
-                            <p class="text-gray-600">Maksimal <strong>H-1</strong> sebelum waktu pembelanjaan.</p>
+                            <h4 class="font-black text-gray-800 uppercase">Deadline H-1</h4>
+                            <p class="text-gray-600 font-semibold">Batas maksimal pengisian form adalah H-1 pembelanjaan.</p>
                         </div>
                     </div>
-                    <div class="bg-green-50 p-5 rounded-2xl border-l-4 border-green-500 shadow-sm flex gap-4 hover-scale">
-                        <div class="text-3xl mt-1">📱</div>
+                    <div class="bg-red-50 p-5 rounded-2xl border-l-8 border-red-500 shadow-sm flex items-center gap-4">
+                        <div class="text-3xl text-red-500"><i class="fa-solid fa-phone-volume"></i></div>
                         <div>
-                            <h4 class="font-bold text-lg text-green-800">Konfirmasi Bendum</h4>
-                            <p class="text-gray-600"><strong>WAJIB konfirmasi</strong> ke  Grup Sekbendiv setelah submit form.</p>
+                            <h4 class="font-black text-red-800 uppercase">Wajib Konfirmasi!</h4>
+                            <p class="text-red-700 font-bold">Setelah submit form, SEGERA kabari Bendahara Umum (Naila/Ririn).</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 3: Prosedur Nota & Pelaporan -->
-        <section id="prosedur" class="space-y-8">
-            <h2 class="text-3xl font-extrabold text-center text-softBlue-800">Prosedur Nota & Pelaporan 🧾</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white rounded-3xl p-6 shadow-lg border-b-4 border-softBlue-400 hover-scale">
-                    <div class="bg-softBlue-100 w-12 h-12 rounded-full flex items-center justify-center text-softBlue-800 text-xl font-bold mb-4">1</div>
-                    <h3 class="font-bold text-xl mb-2 text-gray-800">Wajib Ada Nota!</h3>
-                    <p class="text-gray-600">Setiap pembelian <strong>wajib</strong> ada notanya. Silakan inisiatif meminta nota ke pihak toko secara langsung.</p>
+        <!-- SECTION 3: Prosedur Nota -->
+        <section id="prosedur" class="space-y-6">
+            <h2 class="text-3xl font-black text-center text-softBlue-800 uppercase bg-white py-3 rounded-2xl shadow-sm border-2 border-softBlue-200">Prosedur Nota & Pelaporan 🧾</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                
+                <div class="bg-white rounded-2xl p-6 shadow border-t-4 border-softBlue-500 hover-scale">
+                    <h3 class="font-black text-xl mb-2 text-gray-800">1. WAJIB ADA NOTA!</h3>
+                    <p class="text-gray-700">Setiap pembelian uang proker <strong>MUTLAK WAJIB ADA NOTA</strong>. Silakan proaktif dan inisiatif meminta nota ke toko tersebut.</p>
                 </div>
                 
-                <div class="bg-white rounded-3xl p-6 shadow-lg border-b-4 border-softYellow-400 hover-scale">
-                    <div class="bg-softYellow-100 w-12 h-12 rounded-full flex items-center justify-center text-yellow-800 text-xl font-bold mb-4">2</div>
-                    <h3 class="font-bold text-xl mb-2 text-gray-800">Toko Tidak Punya Nota?</h3>
-                    <p class="text-gray-600">Jika toko tidak menyediakan nota, <strong>segera hubungi Bendahara Umum</strong> saat itu juga untuk mencari solusi.</p>
+                <div class="bg-white rounded-2xl p-6 shadow border-t-4 border-red-500 hover-scale">
+                    <h3 class="font-black text-xl mb-2 text-red-700">2. TOKO TIDAK ADA NOTA?</h3>
+                    <p class="text-gray-700">Jika toko benar-benar tidak bisa mengeluarkan nota, <strong>SEGERA HUBUNGI BENDAHARA UMUM HARI ITU JUGA</strong> untuk mencari solusi. <span class="text-red-600 font-bold">Jangan diam saja!</span></p>
                 </div>
 
-                <div class="bg-white rounded-3xl p-6 shadow-lg border-b-4 border-softBlue-400 hover-scale">
-                    <div class="bg-softBlue-100 w-12 h-12 rounded-full flex items-center justify-center text-softBlue-800 text-xl font-bold mb-4">3</div>
-                    <h3 class="font-bold text-xl mb-2 text-gray-800">Upload & Simpan Fisik</h3>
-                    <p class="text-gray-600">Nota harus difoto/scan lalu diupload. Fisik nota <strong>wajib disimpan dengan baik</strong> oleh Sekbendiv sebelum diserahkan ke Bendum di akhir proker.</p>
-                    <a href="https://drive.google.com/drive/folders/16l--uB06lOpgUurcHSJIim3aMEU7FelC?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block bg-gray-100 hover:bg-gray-200 text-softBlue-800 font-bold py-2 px-4 rounded-xl text-sm transition">
-                        <i class="fa-brands fa-google-drive text-green-500 mr-1"></i> Link Upload Drive
+                <div class="bg-white rounded-2xl p-6 shadow border-t-4 border-softYellow-400 hover-scale">
+                    <h3 class="font-black text-xl mb-2 text-gray-800">3. UPLOAD & SIMPAN FISIK</h3>
+                    <p class="text-gray-700 mb-3">Upload foto/scan nota di G-Drive. <strong class="text-red-600 uppercase">Fisik nota adalah tanggung jawab sekbendiv</strong> sampai diserahkan ke Bendum di akhir proker. Simpan baik-baik!</p>
+                    <a href="https://drive.google.com/drive/folders/16l--uB06lOpgUurcHSJIim3aMEU7FelC?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-block bg-green-100 hover:bg-green-200 text-green-800 font-bold py-2 px-4 rounded-xl border border-green-300">
+                        <i class="fa-brands fa-google-drive mr-2"></i> Folder Upload Nota
                     </a>
                 </div>
 
-                <div class="bg-white rounded-3xl p-6 shadow-lg border-b-4 border-softYellow-400 hover-scale">
-                    <div class="bg-softYellow-100 w-12 h-12 rounded-full flex items-center justify-center text-yellow-800 text-xl font-bold mb-4">4</div>
-                    <h3 class="font-bold text-xl mb-2 text-gray-800">Laporan Real Time</h3>
-                    <p class="text-gray-600">Setiap selesai belanja, <strong>langsung konfirmasi</strong> rinciannya di grup sekbendiv. <em>Jangan ditunda-tunda ya!</em> 😉</p>
+                <div class="bg-red-50 rounded-2xl p-6 shadow border-2 border-red-400 hover-scale">
+                    <h3 class="font-black text-xl mb-2 text-red-800">4. LAPORAN REAL TIME!</h3>
+                    <p class="text-red-800 font-bold text-lg">Setiap selesai belanja, LANGSUNG KONFIRMASI di grup Sekbendiv!</p>
+                    <p class="text-red-700 font-black mt-2 bg-red-200 inline-block px-3 py-1 rounded">JANGAN DITUNDA-TUNDA!</p>
                 </div>
+
             </div>
         </section>
 
-        <!-- SECTION 4: Standar Dokumen (Nota & Kwitansi) -->
-        <section id="standar" class="glass-card rounded-3xl p-8 md:p-10 shadow-xl relative overflow-hidden">
-            <h2 class="text-3xl font-extrabold text-softBlue-800 mb-8 text-center">Standar Dokumen Keuangan</h2>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Syarat Nota -->
-                <div class="bg-softBlue-50 p-6 rounded-2xl border-2 border-softBlue-200 hover-scale">
-                    <h3 class="text-2xl font-bold text-softBlue-800 mb-4 border-b-2 border-softBlue-200 pb-2"><i class="fa-solid fa-receipt mr-2 text-softBlue-500"></i>Syarat Nota Sah</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> Hari dan Tanggal Pembelian</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> Nama & Tanda Tangan Toko</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> Nomor Telepon Toko</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> Foto Fisik Toko</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> Cap Toko (Wajib jika ada)</li>
-                    </ul>
-                </div>
-
-                <!-- Syarat Kwitansi -->
-                <div class="bg-softYellow-50 p-6 rounded-2xl border-2 border-softYellow-200 hover-scale">
-                    <h3 class="text-2xl font-bold text-yellow-800 mb-4 border-b-2 border-softYellow-200 pb-2"><i class="fa-solid fa-money-check-pen mr-2 text-yellow-500"></i>Syarat Kwitansi</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> Menggunakan Kwitansi Biasa</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> Hari dan Tanggal Penerimaan</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> Nominal (Angka & Huruf)</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> Tanda Tangan Penerima</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 5: Ketentuan Khusus Beberapa Akun -->
-        <section id="khusus" class="space-y-8">
-            <h2 class="text-3xl font-extrabold text-center text-softBlue-800">Ketentuan Khusus Beberapa Akun 🌟</h2>
-            
+        <!-- SECTION 4: Standar Dokumen -->
+        <section id="standar" class="glass-card rounded-3xl p-8 border-2 border-gray-200">
+            <h2 class="text-3xl font-black text-gray-800 mb-6 text-center uppercase">Standar Dokumen Keuangan</h2>
             <div class="grid md:grid-cols-2 gap-6">
-                
-                <!-- 1. Honor Narasumber -->
-                <div class="bg-white rounded-3xl p-6 shadow-lg border-t-4 border-softBlue-500 hover-scale">
-                    <h3 class="font-bold text-xl text-softBlue-800 mb-3"><i class="fa-solid fa-user-tie mr-2 text-softBlue-500"></i>1. Honor Narasumber (Luar IPB)</h3>
-                    <ul class="space-y-2 text-gray-600 text-sm mb-3">
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-softBlue-500 mt-1"></i> <span>Kwitansi</span></li>
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-softBlue-500 mt-1"></i> <span>Bukti transfer</span></li>
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-softBlue-500 mt-1"></i> <span>Tanda terima honor (lihat contoh di bawah)</span></li>
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-softBlue-500 mt-1"></i> <span>Fotocopy KTP/NPWP</span></li>
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-softBlue-500 mt-1"></i> <span>Surat undangan/tugas</span></li>
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-softBlue-500 mt-1"></i> <span>Dokumentasi</span></li>
+                <!-- Nota -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+                    <h3 class="text-xl font-black text-softBlue-800 mb-4 border-b-2 border-gray-100 pb-2"><i class="fa-solid fa-receipt mr-2"></i> Syarat NOTA SAH</h3>
+                    <ul class="space-y-3 font-semibold text-gray-700">
+                        <li><i class="fa-solid fa-check text-green-600 w-6"></i> Hari dan Tanggal</li>
+                        <li><i class="fa-solid fa-check text-green-600 w-6"></i> Nama & Tanda Tangan Toko</li>
+                        <li><i class="fa-solid fa-check text-green-600 w-6"></i> Nomor Telepon Toko</li>
+                        <li><i class="fa-solid fa-check text-green-600 w-6"></i> Foto Fisik Toko</li>
+                        <li><i class="fa-solid fa-check text-green-600 w-6"></i> Cap Toko <span class="text-red-500">(Wajib jika ada)</span></li>
+                    </ul>
+                </div>
+                <!-- Kwitansi -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+                    <h3 class="text-xl font-black text-yellow-700 mb-4 border-b-2 border-gray-100 pb-2"><i class="fa-solid fa-money-check-pen mr-2"></i> Syarat KWITANSI</h3>
+                    <ul class="space-y-3 font-semibold text-gray-700">
+                        <li><i class="fa-solid fa-check text-green-600 w-6"></i> Menggunakan Kwitansi Biasa</li>
+                        <li><i class="fa-solid fa-check text-green-600 w-6"></i> Hari dan Tanggal</li>
+                        <li><i class="fa-solid fa-check text-green-600 w-6"></i> Nominal (Angka & Huruf)</li>
+                        <li><i class="fa-solid fa-check text-green-600 w-6"></i> Tanda Tangan Penerima</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: PENJELASAN NAMA AKUN (NEW) -->
+        <section id="nama-akun" class="bg-gradient-to-r from-softBlue-800 to-softBlue-600 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden">
+            <div class="absolute -right-5 top-5 text-7xl opacity-20"><i class="fa-solid fa-folder-tree"></i></div>
+            <div class="relative z-10">
+                <h2 class="text-3xl font-black text-softYellow-300 mb-3">⚠️ APA ITU "NAMA AKUN"?</h2>
+                <p class="text-lg mb-4 text-softBlue-50">
+                    <strong>Nama Akun</strong> adalah penamaan jenis pengeluaran yang telah <strong>distandarisasi oleh DPM</strong>. 
+                    Tujuannya agar RAB dan LPJ kita rapi serta seragam. <br><br>
+                    <span class="bg-red-500 text-white px-2 py-1 rounded font-bold">CONTOH SALAH:</span> "Beli Nasi Kotak" atau "Bayar Pemateri".<br>
+                    <span class="bg-green-500 text-white px-2 py-1 rounded font-bold mt-2 inline-block">CONTOH BENAR:</span> "Biaya Konsumsi" atau "Honor Narasumber".
+                </p>
+                <a href="https://docs.google.com/spreadsheets/d/1FMAvzXIsphlYebJUAChzwWOdR39egTCesCLTzuLC68w/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-block bg-softYellow-400 hover:bg-softYellow-300 text-yellow-900 font-black py-3 px-6 rounded-xl shadow-lg transition">
+                    <i class="fa-solid fa-table-list mr-2"></i> CEK SPREADSHEET KETENTUAN NAMA AKUN
+                </a>
+            </div>
+        </section>
+
+        <!-- SECTION 6: Ketentuan Khusus -->
+        <section id="khusus" class="space-y-6">
+            <h2 class="text-3xl font-black text-center text-gray-800 uppercase">Ketentuan Khusus Beberapa Akun 📂</h2>
+            
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-white rounded-2xl p-5 border-2 border-softBlue-200 shadow hover-scale">
+                    <h3 class="font-black text-lg text-softBlue-800 mb-2">1. Honor Narasumber <span class="text-sm font-normal text-gray-500">(Luar Civitas IPB)</span></h3>
+                    <ul class="list-disc pl-5 text-gray-700 font-semibold text-sm space-y-1">
+                        <li>Kwitansi</li>
+                        <li>Bukti Transfer</li>
+                        <li>Tanda Terima Honor <span class="text-softBlue-500 italic">(Lihat format di bawah)</span></li>
+                        <li>Fotocopy KTP / NPWP</li>
+                        <li>Surat Undangan / Tugas</li>
+                        <li>Dokumentasi</li>
                     </ul>
                 </div>
 
-                <!-- 2. Sewa Kendaraan -->
-                <div class="bg-white rounded-3xl p-6 shadow-lg border-t-4 border-softYellow-400 hover-scale">
-                    <h3 class="font-bold text-xl text-yellow-800 mb-3"><i class="fa-solid fa-van-shuttle mr-2 text-yellow-500"></i>2. Sewa Kendaraan</h3>
-                    <ul class="space-y-2 text-gray-600 text-sm mb-3">
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-softYellow-400 mt-1"></i> <span>Kwitansi</span></li>
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-softYellow-400 mt-1"></i> <span>Nota sewa (kalau ada)</span></li>
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-softYellow-400 mt-1"></i> <span>Fotocopy KTP/NPWP</span></li>
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-softYellow-400 mt-1"></i> <span>Fotocopy SIM dan STNK</span></li>
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-softYellow-400 mt-1"></i> <span>Surat undangan</span></li>
+                <div class="bg-white rounded-2xl p-5 border-2 border-softBlue-200 shadow hover-scale">
+                    <h3 class="font-black text-lg text-softBlue-800 mb-2">2. Sewa Kendaraan</h3>
+                    <ul class="list-disc pl-5 text-gray-700 font-semibold text-sm space-y-1">
+                        <li>Kwitansi</li>
+                        <li>Nota Sewa <span class="text-gray-500 italic">(Kalau ada)</span></li>
+                        <li>Fotocopy KTP / NPWP</li>
+                        <li>Fotocopy SIM dan STNK</li>
+                        <li>Surat Undangan</li>
                     </ul>
                 </div>
 
-                <!-- 3. Biaya Kegiatan Kemahasiswaan -->
-                <div class="bg-white rounded-3xl p-6 shadow-lg border-t-4 border-green-400 hover-scale">
-                    <h3 class="font-bold text-xl text-green-800 mb-3"><i class="fa-solid fa-users-rays mr-2 text-green-500"></i>3. Biaya Keg. Kemahasiswaan</h3>
-                    <ul class="space-y-2 text-gray-600 text-sm mb-3">
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-green-500 mt-1"></i> <span>Nota pembelian</span></li>
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-green-500 mt-1"></i> <span>Tanda terima</span></li>
+                <div class="bg-white rounded-2xl p-5 border-2 border-softBlue-200 shadow hover-scale">
+                    <h3 class="font-black text-lg text-softBlue-800 mb-2">3. Biaya Kegiatan Kemahasiswaan</h3>
+                    <ul class="list-disc pl-5 text-gray-700 font-semibold text-sm space-y-1">
+                        <li>Nota Pembelian</li>
+                        <li>Tanda Terima</li>
                     </ul>
                 </div>
 
-                <!-- 4. Sewa Gedung -->
-                <div class="bg-white rounded-3xl p-6 shadow-lg border-t-4 border-purple-400 hover-scale">
-                    <h3 class="font-bold text-xl text-purple-800 mb-3"><i class="fa-solid fa-building mr-2 text-purple-500"></i>4. Sewa Gedung</h3>
-                    <ul class="space-y-2 text-gray-600 text-sm mb-3">
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-purple-500 mt-1"></i> <span>Kwitansi</span></li>
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-purple-500 mt-1"></i> <span>KTP/NPWP</span></li>
+                <div class="bg-white rounded-2xl p-5 border-2 border-softBlue-200 shadow hover-scale">
+                    <h3 class="font-black text-lg text-softBlue-800 mb-2">4. Sewa Gedung</h3>
+                    <ul class="list-disc pl-5 text-gray-700 font-semibold text-sm space-y-1">
+                        <li>Kwitansi</li>
+                        <li>KTP / NPWP</li>
                     </ul>
                 </div>
-
             </div>
 
-            <!-- Notes Penting -->
-            <div class="bg-red-50 border-2 border-red-200 rounded-3xl p-6 shadow-md mt-6 relative overflow-hidden">
-                <div class="absolute -right-5 -bottom-5 text-8xl opacity-10">📌</div>
-                <h3 class="font-bold text-xl text-red-800 mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-triangle-exclamation animate-pulse"></i> NOTE PENTING!
-                </h3>
-                <ol class="list-decimal list-inside space-y-3 text-gray-700 font-medium">
-                    <li>Untuk Setiap Kwitansi dan Tanda Terima Yang Dibutuhkan Setiap Divisi <span class="text-red-600 font-bold">Akan Diberikan Oleh Bendahara</span>.</li>
-                    <li>Untuk akun ketentuan khusus Honor (kwitansi, tanda terima, NPWP/KTP) akan dikoordinasi oleh <span class="bg-red-200 px-1 rounded">bende langsung ke setiap LO Narasumber</span>.</li>
-                    <li>Untuk akun Sewa Kendaraan, Biaya Kegiatan Kemahasiswaan dan Sewa Gedung akan dikoordinasi oleh <span class="bg-red-200 px-1 rounded">bende langsung ke setiap bendiv divisi</span>.</li>
+            <!-- WARNING NOTES KETENTUAN KHUSUS -->
+            <div class="bg-yellow-50 border-4 border-yellow-400 p-6 rounded-2xl shadow-md mt-6">
+                <h3 class="font-black text-xl text-yellow-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-bullhorn"></i> NOTES PENTING!</h3>
+                <ol class="list-decimal pl-5 space-y-3 text-gray-800 font-bold">
+                    <li>Untuk setiap <strong class="text-red-600">Kwitansi dan Tanda Terima</strong> yang dibutuhkan divisi, <strong class="text-softBlue-800">AKAN DIBERIKAN OLEH BENDAHARA UMUM</strong>.</li>
+                    <li>Akun <strong class="text-softBlue-600">Honor Narasumber</strong> (Kwitansi, Tanda Terima, NPWP/KTP) akan dikoordinasi oleh Bendum <strong class="text-red-600 uppercase">langsung ke setiap LO Narasumber</strong>.</li>
+                    <li>Akun <strong class="text-softBlue-600">Sewa Kendaraan, Kegiatan Kemahasiswaan, dan Sewa Gedung</strong> akan dikoordinasi oleh Bendum <strong class="text-red-600 uppercase">langsung ke setiap Bendiv Divisi</strong>.</li>
                 </ol>
             </div>
+        </section>
 
-            <!-- Tabel Tanda Terima -->
-            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border-2 border-softBlue-200 mt-8 hover-scale">
-                <div class="bg-softBlue-800 text-white p-4 text-center">
-                    <h3 class="font-bold text-xl">Contoh Format Tanda Terima Honor</h3>
-                    <p class="text-sm text-softBlue-200">Gunakan kop surat Ormawa/UKM di atas tabel ini nantinya.</p>
-                </div>
-                <div class="p-6 overflow-x-auto">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="bg-softBlue-100 text-softBlue-800">
-                                <th class="p-3 border border-softBlue-200 rounded-tl-xl">No</th>
-                                <th class="p-3 border border-softBlue-200">Nama Penerima</th>
-                                <th class="p-3 border border-softBlue-200">Peran</th>
-                                <th class="p-3 border border-softBlue-200">Nominal</th>
-                                <th class="p-3 border border-softBlue-200">Asal Instansi</th>
-                                <th class="p-3 border border-softBlue-200 rounded-tr-xl">TTD Basah</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="hover:bg-gray-50 transition">
-                                <td class="p-3 border border-gray-200">1.</td>
-                                <td class="p-3 border border-gray-200 font-semibold">Dimas Saputra</td>
-                                <td class="p-3 border border-gray-200">MC</td>
-                                <td class="p-3 border border-gray-200">Rp 200.000</td>
-                                <td class="p-3 border border-gray-200">PT Unilever Indonesia Tbk</td>
-                                <td class="p-3 border border-gray-200 italic text-gray-400">Tanda Tangan</td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 transition">
-                                <td class="p-3 border border-gray-200">2.</td>
-                                <td class="p-3 border border-gray-200">...</td>
-                                <td class="p-3 border border-gray-200">...</td>
-                                <td class="p-3 border border-gray-200">...</td>
-                                <td class="p-3 border border-gray-200">...</td>
-                                <td class="p-3 border border-gray-200">...</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+        <!-- SECTION 7: Tabel Tanda Terima -->
+        <section id="tabel" class="bg-white rounded-3xl shadow-xl overflow-hidden border-4 border-gray-800">
+            <div class="bg-gray-800 text-white p-5 text-center">
+                <h3 class="font-black text-2xl uppercase tracking-wider">Format Tanda Terima Honor</h3>
+                <p class="text-sm text-gray-300 mt-1">Jangan lupa gunakan <strong class="text-softYellow-300">KOP SURAT ORMAWA/UKM</strong> di atas tabel ini. Boleh tulis tangan / diketik.</p>
+            </div>
+            <div class="p-6 overflow-x-auto">
+                <table class="w-full text-left border-collapse border-2 border-gray-800">
+                    <thead>
+                        <tr class="bg-gray-100 text-gray-900 uppercase text-sm font-black">
+                            <th class="p-3 border-2 border-gray-800 text-center">No</th>
+                            <th class="p-3 border-2 border-gray-800 text-center">Nama Penerima</th>
+                            <th class="p-3 border-2 border-gray-800 text-center">Peran</th>
+                            <th class="p-3 border-2 border-gray-800 text-center">Nominal</th>
+                            <th class="p-3 border-2 border-gray-800 text-center">Asal Instansi</th>
+                            <th class="p-3 border-2 border-gray-800 text-center">TTD Basah</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="p-3 border-2 border-gray-800 text-center font-bold">1.</td>
+                            <td class="p-3 border-2 border-gray-800 font-bold">Dimas Saputra</td>
+                            <td class="p-3 border-2 border-gray-800 font-semibold text-center">MC</td>
+                            <td class="p-3 border-2 border-gray-800 font-bold text-center">Rp 200.000</td>
+                            <td class="p-3 border-2 border-gray-800 font-semibold">PT Unilever Indonesia Tbk</td>
+                            <td class="p-3 border-2 border-gray-800 italic text-gray-400 text-center">Tanda Tangan</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="p-3 border-2 border-gray-800 text-center font-bold">2.</td>
+                            <td class="p-3 border-2 border-gray-800"></td>
+                            <td class="p-3 border-2 border-gray-800"></td>
+                            <td class="p-3 border-2 border-gray-800"></td>
+                            <td class="p-3 border-2 border-gray-800"></td>
+                            <td class="p-3 border-2 border-gray-800"></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
 
-        <!-- SECTION 6: Deadline RAB & Link Penting -->
+        <!-- SECTION 8: Deadline RAB & Link Penting -->
         <section id="deadline" class="space-y-6">
-            <!-- Banner Deadline -->
-            <div class="bg-gradient-to-r from-softYellow-300 to-softYellow-400 rounded-3xl p-10 text-center shadow-lg transform hover:-translate-y-2 transition duration-300 border-4 border-white relative overflow-hidden">
-                <div class="absolute -left-10 -bottom-10 text-9xl opacity-20">⏰</div>
-                <h2 class="text-4xl font-black text-yellow-900 mb-2 uppercase tracking-wide">PENGINGAT DEADLINE RAB!</h2>
-                <div class="bg-white inline-block px-8 py-3 rounded-full text-2xl font-bold text-softBlue-800 shadow-sm mb-4 animate-pulse">
+            <div class="bg-red-600 rounded-3xl p-10 text-center shadow-xl transform hover:-translate-y-2 transition duration-300 border-4 border-red-800 relative overflow-hidden">
+                <div class="absolute -left-10 -bottom-10 text-9xl opacity-10 text-black"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-4 uppercase tracking-wider" style="text-shadow: 2px 2px 0 #7f1d1d;">
+                    DEADLINE RAB DIVISI!
+                </h2>
+                <div class="bg-white inline-block px-10 py-3 rounded-xl text-3xl font-black text-red-700 shadow border-4 border-red-300 animate-pulse uppercase">
                     Bulan April 2026
                 </div>
-                <p class="text-yellow-900 font-semibold text-lg">*Tanggal pasti akan menyusul, persiapkan dari sekarang ya!</p>
-            </div>
-
-            <!-- Important Links -->
-            <div class="grid md:grid-cols-2 gap-4">
-                <a href="https://docs.google.com/spreadsheets/d/1aLFYU24AKoxgMnDO7q50ZOJ4GqQvK-Mqf14-ZD3BII4/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow hover-scale border-l-4 border-green-500">
-                    <div class="bg-green-100 p-3 rounded-xl text-green-600"><i class="fa-solid fa-file-excel text-xl animate-bounce"></i></div>
-                    <div>
-                        <h4 class="font-bold text-gray-800">Link Pengisian RAB Divisi</h4>
-                        <p class="text-sm text-gray-500">Spreadsheet RAB Utama</p>
-                    </div>
-                </a>
+                <p class="text-white font-bold mt-4 text-lg">*(Tanggal pasti menyusul, WAJIB cicil dari sekarang!)*</p>
                 
-                <a href="https://docs.google.com/spreadsheets/d/1FMAvzXIsphlYebJUAChzwWOdR39egTCesCLTzuLC68w/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow hover-scale border-l-4 border-purple-500">
-                    <div class="bg-purple-100 p-3 rounded-xl text-purple-600"><i class="fa-solid fa-list-check text-xl animate-bounce"></i></div>
-                    <div>
-                        <h4 class="font-bold text-gray-800">Ketentuan Nama Akun</h4>
-                        <p class="text-sm text-gray-500">Standarisasi DPM</p>
-                    </div>
+                <a href="https://docs.google.com/spreadsheets/d/1aLFYU24AKoxgMnDO7q50ZOJ4GqQvK-Mqf14-ZD3BII4/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-6 inline-block bg-yellow-400 hover:bg-yellow-300 text-yellow-900 font-black py-4 px-8 rounded-full shadow-lg transition border-4 border-yellow-600 text-xl">
+                    <i class="fa-solid fa-file-excel mr-2"></i> KLIK UNTUK ISI RAB DIVISI
                 </a>
             </div>
         </section>
@@ -385,9 +355,9 @@
     </main>
 
     <!-- Footer -->
-    <footer class="mt-20 text-center text-softBlue-800 font-semibold relative z-10 pb-10">
-        <p>Dibuat dengan 💛 dan ☕ untuk Edeldis 2026</p>
-        <p class="text-sm mt-2 opacity-70">Semangat para pahlawan keuangan! You rock! 🎸</p>
+    <footer class="mt-20 text-center text-softBlue-800 font-bold relative z-10 pb-10">
+        <p>Dibuat dengan 💛 dan ☕ untuk Bendahara Edeldis 2026</p>
+        <p class="text-sm mt-1">Satu Rupiah Berharga, Satu Nota Menyelamatkan Nyawa! 🦸‍♀️</p>
     </footer>
 
 </body>
