@@ -3,393 +3,344 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panduan Keuangan Edeldis 2026</title>
-    <!-- Font Google untuk gaya ramah dan ceria -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome untuk Ikon -->
+    <title>Financial Fun-tastic Edeldis 2026!</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Nunito -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Tailwind Config for Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                    },
+                    colors: {
+                        softBlue: {
+                            100: '#E0F2FE',
+                            200: '#BAE6FD',
+                            500: '#0EA5E9',
+                            800: '#075985',
+                        },
+                        softYellow: {
+                            100: '#FEF9C3',
+                            300: '#FDE047',
+                            400: '#FACC15',
+                            800: '#854D0E',
+                        }
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        /* Variabel Warna Utama */
-        :root {
-            --soft-blue: #E3F2FD;
-            --soft-yellow: #FFF9C4;
-            --dark-blue: #1565C0;
-            --text-color: #37474F;
-            --white: #FFFFFF;
-            --shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        /* Latar mburi tanpa polkadot, namung warna gradasi alus (Javanese comment) */
         body {
-            font-family: 'Quicksand', sans-serif;
-            background-color: var(--soft-blue);
-            color: var(--text-color);
-            line-height: 1.6;
-            padding: 20px;
+            background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%);
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
+        /* Smooth Scroll */
+        html { scroll-behavior: smooth; }
+
+        /* Glassmorphism utility */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.5);
         }
 
-        /* Hero / Header Section */
-        header {
-            text-align: center;
-            background-color: var(--white);
-            padding: 40px 20px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
+        .hover-scale {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
         }
-
-        header::before {
-            content: '🌸';
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            font-size: 30px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        header::after {
-            content: '✨';
-            position: absolute;
-            bottom: 20px;
-            right: 30px;
-            font-size: 30px;
-            animation: float 4s ease-in-out infinite reverse;
-        }
-
-        h1 {
-            color: var(--dark-blue);
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-
-        .slogan {
-            background-color: #FFCDD2;
-            color: #C62828;
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2em;
-            margin: 15px 0;
-            border: 2px dashed #C62828;
-            animation: pulse 2s infinite;
-        }
-
-        /* Quick Links Section */
-        .links-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            background-color: var(--soft-yellow);
-            color: var(--text-color);
-            text-decoration: none;
-            padding: 15px 25px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1em;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border: 2px solid transparent;
-        }
-
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
-            border: 2px solid var(--dark-blue);
-        }
-
-        .btn i {
-            color: var(--dark-blue);
-            font-size: 1.2em;
-        }
-
-        /* QR Code Section */
-        .qr-section {
-            text-align: center;
-            background-color: var(--white);
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .qr-section img {
-            max-width: 200px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-
-        .qr-section p {
-            font-weight: 600;
-            color: var(--dark-blue);
-        }
-
-        /* Sections (Cards) */
-        section {
-            background-color: var(--white);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
-            transition: transform 0.3s ease;
-        }
-
-        section:hover {
-            transform: translateY(-3px);
-        }
-
-        h2 {
-            color: var(--dark-blue);
-            margin-bottom: 20px;
-            border-bottom: 3px solid var(--soft-yellow);
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        h2 i {
-            margin-right: 10px;
-            color: #FFB300;
-        }
-
-        ul {
-            list-style-type: none;
-        }
-
-        ul li {
-            margin-bottom: 15px;
-            position: relative;
-            padding-left: 30px;
-        }
-
-        ul li::before {
-            content: '📌';
-            position: absolute;
-            left: 0;
-            top: 2px;
-        }
-
-        .highlight {
-            background-color: var(--soft-yellow);
-            padding: 2px 8px;
-            border-radius: 5px;
-            font-weight: 600;
-        }
-
-        /* Table Styling */
-        .table-wrapper {
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #EEEEEE;
-        }
-
-        th {
-            background-color: var(--soft-blue);
-            color: var(--dark-blue);
-            font-weight: 700;
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tr:hover td {
-            background-color: #F8FDFF;
-        }
-
-        /* Animations */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            h1 { font-size: 2em; }
-            .btn { width: 100%; justify-content: center; }
+        
+        .hover-scale:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
     </style>
 </head>
-<body>
+<body class="text-gray-700 antialiased pt-10 pb-20 px-4 md:px-8 overflow-x-hidden min-h-screen">
 
-<div class="container">
-    
-    <!-- HEADER -->
-    <header>
-        <h1><i class="fa-solid fa-seedling" style="color: #4CAF50;"></i> Panduan Keuangan Edeldis 2026</h1>
-        <p>Halo sobat Bendahara! Yuk pahami alur keuangan kita agar proker berjalan lancar dan ceria! 😊</p>
-        <div class="slogan">
-            <i class="fa-solid fa-ban"></i> No Chat Request, Form Only! 📝
-        </div>
-    </header>
+    <!-- Hiasan awan wis didandani supaya ora ngebug layar (Javanese comment) -->
+    <div class="fixed top-10 left-10 text-6xl opacity-50 animate-float pointer-events-none z-0">☁️</div>
+    <div class="fixed top-40 right-20 text-5xl opacity-40 animate-float pointer-events-none z-0" style="animation-delay: 1s;">☁️</div>
+    <div class="fixed bottom-20 left-20 text-6xl opacity-60 animate-float pointer-events-none z-0" style="animation-delay: 2s;">✨</div>
 
-    <!-- QUICK LINKS -->
-    <div class="links-container">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmIZn2F7XoehgpxZPFh76TKE0p0-H0ozRpvDcggQT3MVemTg/viewform?usp=preview" target="_blank" class="btn">
-            <i class="fa-solid fa-paper-plane"></i> Isi Form Pengajuan
-        </a>
-        <a href="https://docs.google.com/spreadsheets/d/contoh_link_rab" target="_blank" class="btn">
-            <i class="fa-solid fa-file-excel"></i> RAB Perdivisi (DL: April '26)
-        </a>
-        <a href="https://docs.google.com/spreadsheets/d/1FMAvzXIsphlYebJUAChzwWOdR39egTCesCLTzuLC68w/edit?usp=sharing" target="_blank" class="btn">
-            <i class="fa-solid fa-list"></i> Ketentuan Nama Akun
-        </a>
-        <a href="https://drive.google.com/drive/folders/16l--uB06lOpgUurcHSJIim3aMEU7FelC?usp=sharing" target="_blank" class="btn">
-            <i class="fa-solid fa-upload"></i> Folder Upload Nota
-        </a>
-    </div>
+    <main class="max-w-4xl mx-auto relative z-10 space-y-12">
 
-    <!-- QR CODE SECTION -->
-    <div class="qr-section">
-        <img src="https://i.ibb.co.com/bwXDm71/Pengajuan-Dana-Edeldis-2026.png" alt="QR Code Pengajuan Dana">
-        <p><i class="fa-solid fa-qrcode"></i> Scan QR untuk pengajuan dana!</p>
-    </div>
-
-    <!-- SECTION 1: ALUR BARU -->
-    <section>
-        <h2><i class="fa-solid fa-route"></i> Section 1: Alur Baru Pengajuan Dana</h2>
-        <ul>
-            <li><span class="highlight">Pendataan Rutin:</span> Dilakukan setiap hari <strong>Sabtu</strong> sesuai kebutuhan RAB untuk 1 minggu ke depan.</li>
-            <li><span class="highlight">Batas Waktu:</span> Pengisian Form Pengajuan maksimal <strong>H-1</strong> sebelum pembelanjaan.</li>
-            <li><span class="highlight">Konfirmasi Wajib:</span> Setelah mengisi form, Sekbendiv WAJIB konfirmasi ke Bendahara Umum (Naila / Ririn).</li>
-            <li>Setiap belanja langsung kabari di grup, jangan ditunda-tunda ya! 🏃‍♀️💨</li>
-        </ul>
-    </section>
-
-    <!-- SECTION 2: SYARAT BUKTI -->
-    <section>
-        <h2><i class="fa-solid fa-receipt"></i> Section 2: Syarat Nota & Kwitansi</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-            <div style="background: #FFFDE7; padding: 15px; border-radius: 10px; border: 1px dashed #FBC02D;">
-                <h3 style="color: #F57F17; margin-bottom: 10px;"><i class="fa-solid fa-file-invoice"></i> Nota Belanja</h3>
-                <p>Harus memuat poin-poin berikut:</p>
-                <ul style="margin-top: 10px;">
-                    <li>Hari & Tanggal</li>
-                    <li>Nama Toko</li>
-                    <li>Tanda Tangan Toko</li>
-                    <li>No. Telp Toko</li>
-                    <li>Foto Fisik Toko / Cap Toko (Bila ada)</li>
+        <!-- SECTION 1: Welcome & Tupoksi -->
+        <section id="welcome" class="text-center space-y-6 animate-fade-in-up">
+            <div class="inline-block bg-white px-6 py-2 rounded-full text-softBlue-800 font-bold tracking-wider shadow-sm mb-4 border-2 border-softBlue-200">
+                ✨ PANDUAN RESMI ✨
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black text-softBlue-800 drop-shadow-md leading-tight">
+                Financial Fun-tastic<br>
+                <span class="text-softYellow-400 stroke-text">Edeldis 2026! ✏️</span>
+            </h1>
+            
+            <div class="glass-card rounded-3xl p-8 shadow-xl mt-8 hover-scale text-left relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 text-9xl opacity-10">💼</div>
+                <h2 class="text-2xl font-bold text-softBlue-800 mb-4 flex items-center gap-3">
+                    <i class="fa-solid fa-clipboard-user text-softYellow-400"></i> Tupoksi Bendahara Divisi
+                </h2>
+                <p class="text-lg leading-relaxed text-gray-700">
+                    Sebagai pahlawan keuangan divisi, kamu bertanggung jawab atas:
+                </p>
+                <ul class="mt-4 space-y-3">
+                    <li class="flex items-start gap-3">
+                        <span class="bg-softBlue-100 text-softBlue-800 p-1 rounded-lg mt-1"><i class="fa-solid fa-check"></i></span>
+                        <span>Mendata kebutuhan anggaran divisi secara akurat.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="bg-softBlue-100 text-softBlue-800 p-1 rounded-lg mt-1"><i class="fa-solid fa-check"></i></span>
+                        <span>Memastikan keaslian dan kelengkapan bukti belanja (nota/kwitansi).</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="bg-softBlue-100 text-softBlue-800 p-1 rounded-lg mt-1"><i class="fa-solid fa-check"></i></span>
+                        <span>Mengoordinasikan pelaporan keuangan secara transparan kepada Bendahara Umum.</span>
+                    </li>
                 </ul>
             </div>
-            <div style="background: #E8F5E9; padding: 15px; border-radius: 10px; border: 1px dashed #388E3C;">
-                <h3 style="color: #2E7D32; margin-bottom: 10px;"><i class="fa-solid fa-money-check-dollar"></i> Kwitansi</h3>
-                <p>Minimal harus mencantumkan:</p>
-                <ul style="margin-top: 10px;">
-                    <li>Hari & Tanggal</li>
-                    <li>Nominal yang Diterima (Jelas)</li>
-                    <li>Tanda Tangan Penerima</li>
-                </ul>
+        </section>
+
+        <!-- SECTION 2: Mekanisme Pengajuan (One-Gate System) -->
+        <section id="mekanisme" class="glass-card rounded-3xl p-8 md:p-12 shadow-xl border-t-8 border-t-softYellow-400 relative">
+            <div class="absolute -left-6 top-10 text-5xl animate-bounce-slow">🚀</div>
+            <div class="text-center mb-10">
+                <span class="bg-softYellow-300 text-yellow-900 font-bold px-4 py-1 rounded-full text-sm mb-4 inline-block">PERUBAHAN 2026</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-softBlue-800">Mekanisme Pengajuan Dana</h2>
+                <p class="text-xl mt-3 font-semibold text-gray-600">One-Gate System 🚪</p>
+                <div class="bg-red-100 text-red-700 p-4 rounded-xl mt-4 inline-block font-bold border-2 border-red-200">
+                    ⚠️ Tahun 2026 pengajuan WAJIB via G-Form, TIDAK LAGI lewat chat WhatsApp!
+                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- SECTION 3: AKUN KHUSUS -->
-    <section>
-        <h2><i class="fa-solid fa-star"></i> Section 3: Syarat Akun Khusus</h2>
-        <ul>
-            <li><strong>Honor Narasumber:</strong> Wajib melampirkan Kwitansi, Bukti Transfer, Tanda Terima Honor, Fotocopy KTP/NPWP, Surat Undangan, dan Dokumentasi.</li>
-            <li><strong>Sewa Kendaraan:</strong> Wajib melampirkan Kwitansi, Nota Sewa (jika ada), Fotocopy KTP/NPWP, Fotocopy SIM & STNK, dan Surat Undangan.</li>
-            <li><strong>Sewa Gedung:</strong> Wajib melampirkan Kwitansi dan Fotocopy KTP/NPWP pemilik gedung.</li>
-            <li><em>Catatan: Form Tanda Terima / Kwitansi akan difasilitasi oleh Bendum.</em></li>
-        </ul>
-    </section>
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <!-- QR Code & Button -->
+                <div class="text-center space-y-6 bg-white p-6 rounded-3xl shadow-md border-2 border-softBlue-100 hover-scale">
+                    <h3 class="font-bold text-xl text-softBlue-800">Scan atau Klik Form Di Sini 👇</h3>
+                    <img src="https://i.ibb.co.com/bwXDm71/Pengajuan-Dana-Edeldis-2026.png" alt="QR Code Pengajuan Dana Edeldis 2026" class="w-56 h-56 mx-auto rounded-2xl shadow-sm border-4 border-softYellow-300">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmIZn2F7XoehgpxZPFh76TKE0p0-H0ozRpvDcggQT3MVemTg/viewform?usp=preview" target="_blank" rel="noopener noreferrer" class="block w-full bg-softBlue-500 hover:bg-softBlue-800 text-white font-bold text-lg py-4 px-6 rounded-2xl transition duration-300 shadow-lg transform hover:-translate-y-1">
+                        <i class="fa-solid fa-paper-plane mr-2"></i> Isi Form Pengajuan
+                    </a>
+                </div>
 
-    <!-- SECTION 4: CONTOH TANDA TERIMA -->
-    <section>
-        <h2><i class="fa-solid fa-pen-nib"></i> Section 4: Contoh Tanda Terima Honor</h2>
-        <p style="margin-bottom: 10px;">Berikut adalah format visualisasi untuk kolom tanda terima honor narasumber/pihak luar:</p>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Penerima</th>
-                        <th>Peran</th>
-                        <th>Nominal</th>
-                        <th>Asal Instansi</th>
-                        <th>TTD Basah</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Dimas Saputra</td>
-                        <td>MC</td>
-                        <td><span class="highlight">Rp 200.000</span></td>
-                        <td>PT Unilever Indonesia Tbk</td>
-                        <td><em>(TTD)</em></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Dr. Nadhira Afifa</td>
-                        <td>Pemateri</td>
-                        <td><span class="highlight">Rp 500.000</span></td>
-                        <td>FKM UI</td>
-                        <td><em>(TTD)</em></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+                <!-- Timeline Info -->
+                <div class="space-y-6">
+                    <div class="bg-softBlue-50 p-5 rounded-2xl border-l-4 border-softBlue-500 shadow-sm flex gap-4 hover-scale">
+                        <div class="text-3xl mt-1">🗓️</div>
+                        <div>
+                            <h4 class="font-bold text-lg text-softBlue-800">Pendataan Mingguan</h4>
+                            <p class="text-gray-600">Setiap <strong>hari Sabtu</strong> untuk pendataan 1 minggu ke depan.</p>
+                        </div>
+                    </div>
+                    <div class="bg-softYellow-100 p-5 rounded-2xl border-l-4 border-softYellow-400 shadow-sm flex gap-4 hover-scale">
+                        <div class="text-3xl mt-1">⏰</div>
+                        <div>
+                            <h4 class="font-bold text-lg text-yellow-800">Batas Pengisian Form</h4>
+                            <p class="text-gray-600">Maksimal <strong>H-1</strong> sebelum waktu pembelanjaan.</p>
+                        </div>
+                    </div>
+                    <div class="bg-green-50 p-5 rounded-2xl border-l-4 border-green-500 shadow-sm flex gap-4 hover-scale">
+                        <div class="text-3xl mt-1">📱</div>
+                        <div>
+                            <h4 class="font-bold text-lg text-green-800">Konfirmasi Bendum</h4>
+                            <p class="text-gray-600"><strong>WAJIB konfirmasi</strong> ke Bendahara Umum (Naila / Ririn) setelah submit form.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div style="text-align: center; margin-top: 40px; color: #78909C; font-size: 0.9em;">
-        <p>Dibuat dengan 💛 oleh Bendahara Umum Edeldis 2026</p>
-    </div>
+        <!-- SECTION 3: Prosedur Nota & Pelaporan -->
+        <section id="prosedur" class="space-y-8">
+            <h2 class="text-3xl font-extrabold text-center text-softBlue-800">Prosedur Nota & Pelaporan 🧾</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-3xl p-6 shadow-lg border-b-4 border-softBlue-400 hover-scale">
+                    <div class="bg-softBlue-100 w-12 h-12 rounded-full flex items-center justify-center text-softBlue-800 text-xl font-bold mb-4">1</div>
+                    <h3 class="font-bold text-xl mb-2 text-gray-800">Wajib Ada Nota!</h3>
+                    <p class="text-gray-600">Setiap pembelian <strong>wajib</strong> ada notanya. Silakan inisiatif meminta nota ke pihak toko secara langsung.</p>
+                </div>
+                
+                <div class="bg-white rounded-3xl p-6 shadow-lg border-b-4 border-softYellow-400 hover-scale">
+                    <div class="bg-softYellow-100 w-12 h-12 rounded-full flex items-center justify-center text-yellow-800 text-xl font-bold mb-4">2</div>
+                    <h3 class="font-bold text-xl mb-2 text-gray-800">Toko Tidak Punya Nota?</h3>
+                    <p class="text-gray-600">Jika toko tidak menyediakan nota, <strong>segera hubungi Bendahara Umum</strong> saat itu juga untuk mencari solusi.</p>
+                </div>
 
-</div>
+                <div class="bg-white rounded-3xl p-6 shadow-lg border-b-4 border-softBlue-400 hover-scale">
+                    <div class="bg-softBlue-100 w-12 h-12 rounded-full flex items-center justify-center text-softBlue-800 text-xl font-bold mb-4">3</div>
+                    <h3 class="font-bold text-xl mb-2 text-gray-800">Upload & Simpan Fisik</h3>
+                    <p class="text-gray-600">Nota harus difoto/scan lalu diupload. Fisik nota <strong>wajib disimpan dengan baik</strong> oleh Sekbendiv sebelum diserahkan ke Bendum di akhir proker.</p>
+                    <a href="https://drive.google.com/drive/folders/16l--uB06lOpgUurcHSJIim3aMEU7FelC?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block bg-gray-100 hover:bg-gray-200 text-softBlue-800 font-bold py-2 px-4 rounded-xl text-sm transition">
+                        <i class="fa-brands fa-google-drive text-green-500 mr-1"></i> Link Upload Drive
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-3xl p-6 shadow-lg border-b-4 border-softYellow-400 hover-scale">
+                    <div class="bg-softYellow-100 w-12 h-12 rounded-full flex items-center justify-center text-yellow-800 text-xl font-bold mb-4">4</div>
+                    <h3 class="font-bold text-xl mb-2 text-gray-800">Laporan Real Time</h3>
+                    <p class="text-gray-600">Setiap selesai belanja, <strong>langsung konfirmasi</strong> rinciannya di grup sekbendiv. <em>Jangan ditunda-tunda ya!</em> 😉</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Standar Dokumen (Nota & Kwitansi) -->
+        <section id="standar" class="glass-card rounded-3xl p-8 md:p-10 shadow-xl relative overflow-hidden">
+            <div class="absolute -right-5 bottom-0 text-8xl opacity-20">📝</div>
+            <h2 class="text-3xl font-extrabold text-softBlue-800 mb-8 text-center">Standar Dokumen Keuangan</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Syarat Nota -->
+                <div class="bg-softBlue-50 p-6 rounded-2xl border-2 border-softBlue-200">
+                    <h3 class="text-2xl font-bold text-softBlue-800 mb-4 border-b-2 border-softBlue-200 pb-2"><i class="fa-solid fa-receipt mr-2"></i>Syarat Nota Sah</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> Hari dan Tanggal Pembelian</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> Nama & Tanda Tangan Toko</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> Nomor Telepon Toko</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> Foto Fisik Toko</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> Cap Toko (Wajib jika ada)</li>
+                    </ul>
+                </div>
+
+                <!-- Syarat Kwitansi -->
+                <div class="bg-softYellow-50 p-6 rounded-2xl border-2 border-softYellow-200">
+                    <h3 class="text-2xl font-bold text-yellow-800 mb-4 border-b-2 border-softYellow-200 pb-2"><i class="fa-solid fa-money-check-pen mr-2"></i>Syarat Kwitansi</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> Menggunakan Kwitansi Biasa</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> Hari dan Tanggal Penerimaan</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> Nominal (Angka & Huruf)</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-500"></i> Tanda Tangan Penerima</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: Akun Khusus & Contoh Tanda Terima -->
+        <section id="khusus" class="space-y-8">
+            <h2 class="text-3xl font-extrabold text-center text-softBlue-800">Ketentuan Akun Khusus 🌟</h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-3xl p-6 shadow-lg border-2 border-gray-100 hover-scale">
+                    <h3 class="font-bold text-xl text-softBlue-800 mb-3"><i class="fa-solid fa-user-tie mr-2"></i>Honor Narasumber</h3>
+                    <p class="text-sm text-gray-500 mb-3">Dokumen yang wajib disiapkan:</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-100 px-3 py-1 rounded-full text-sm font-semibold text-gray-700">FC KTP/NPWP</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-full text-sm font-semibold text-gray-700">Bukti Transfer</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-full text-sm font-semibold text-gray-700">Tanda Terima</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-full text-sm font-semibold text-gray-700">Surat Undangan</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-full text-sm font-semibold text-gray-700">Dokumentasi</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-6 shadow-lg border-2 border-gray-100 hover-scale">
+                    <h3 class="font-bold text-xl text-softBlue-800 mb-3"><i class="fa-solid fa-van-shuttle mr-2"></i>Sewa Kendaraan</h3>
+                    <p class="text-sm text-gray-500 mb-3">Dokumen yang wajib disiapkan:</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-100 px-3 py-1 rounded-full text-sm font-semibold text-gray-700">Kwitansi</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-full text-sm font-semibold text-gray-700">FC SIM Supir</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-full text-sm font-semibold text-gray-700">FC STNK</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-full text-sm font-semibold text-gray-700">FC KTP</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-full text-sm font-semibold text-gray-700">Surat Undangan (Jika ada)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabel Tanda Terima -->
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border-2 border-softBlue-200 mt-8">
+                <div class="bg-softBlue-800 text-white p-4 text-center">
+                    <h3 class="font-bold text-xl">Contoh Format Tanda Terima Honor</h3>
+                    <p class="text-sm text-softBlue-200">Gunakan kop surat Ormawa/UKM di atas tabel ini nantinya.</p>
+                </div>
+                <div class="p-6 overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-softBlue-100 text-softBlue-800">
+                                <th class="p-3 border border-softBlue-200 rounded-tl-xl">No</th>
+                                <th class="p-3 border border-softBlue-200">Nama Penerima</th>
+                                <th class="p-3 border border-softBlue-200">Peran</th>
+                                <th class="p-3 border border-softBlue-200">Nominal</th>
+                                <th class="p-3 border border-softBlue-200">Asal Instansi</th>
+                                <th class="p-3 border border-softBlue-200 rounded-tr-xl">TTD Basah</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="p-3 border border-gray-200">1.</td>
+                                <td class="p-3 border border-gray-200 font-semibold">Dimas Saputra</td>
+                                <td class="p-3 border border-gray-200">MC</td>
+                                <td class="p-3 border border-gray-200">Rp 200.000</td>
+                                <td class="p-3 border border-gray-200">PT Unilever Indonesia Tbk</td>
+                                <td class="p-3 border border-gray-200 italic text-gray-400">Tanda Tangan</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="p-3 border border-gray-200">2.</td>
+                                <td class="p-3 border border-gray-200">...</td>
+                                <td class="p-3 border border-gray-200">...</td>
+                                <td class="p-3 border border-gray-200">...</td>
+                                <td class="p-3 border border-gray-200">...</td>
+                                <td class="p-3 border border-gray-200">...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: Deadline RAB & Link Penting -->
+        <section id="deadline" class="space-y-6">
+            <!-- Banner Deadline -->
+            <div class="bg-gradient-to-r from-softYellow-300 to-softYellow-400 rounded-3xl p-10 text-center shadow-lg transform hover:-translate-y-2 transition duration-300 border-4 border-white relative overflow-hidden">
+                <div class="absolute -left-10 -bottom-10 text-9xl opacity-20">⏰</div>
+                <h2 class="text-4xl font-black text-yellow-900 mb-2 uppercase tracking-wide">PENGINGAT DEADLINE RAB!</h2>
+                <div class="bg-white inline-block px-8 py-3 rounded-full text-2xl font-bold text-softBlue-800 shadow-sm mb-4 animate-pulse">
+                    Bulan April 2026
+                </div>
+                <p class="text-yellow-900 font-semibold text-lg">*Tanggal pasti akan menyusul, persiapkan dari sekarang ya!</p>
+            </div>
+
+            <!-- Important Links -->
+            <div class="grid md:grid-cols-2 gap-4">
+                <a href="https://docs.google.com/spreadsheets/d/1aLFYU24AKoxgMnDO7q50ZOJ4GqQvK-Mqf14-ZD3BII4/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow hover-scale border-l-4 border-green-500">
+                    <div class="bg-green-100 p-3 rounded-xl text-green-600"><i class="fa-solid fa-file-excel text-xl"></i></div>
+                    <div>
+                        <h4 class="font-bold text-gray-800">Link Pengisian RAB Divisi</h4>
+                        <p class="text-sm text-gray-500">Spreadsheet RAB Utama</p>
+                    </div>
+                </a>
+                
+                <a href="https://docs.google.com/spreadsheets/d/1FMAvzXIsphlYebJUAChzwWOdR39egTCesCLTzuLC68w/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow hover-scale border-l-4 border-purple-500">
+                    <div class="bg-purple-100 p-3 rounded-xl text-purple-600"><i class="fa-solid fa-list-check text-xl"></i></div>
+                    <div>
+                        <h4 class="font-bold text-gray-800">Ketentuan Nama Akun</h4>
+                        <p class="text-sm text-gray-500">Standarisasi DPM</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-20 text-center text-softBlue-800 font-semibold relative z-10 pb-10">
+        <p>Dibuat dengan 💛 dan ☕ untuk Edeldis 2026</p>
+        <p class="text-sm mt-2 opacity-70">Semangat para pahlawan keuangan! You rock! 🎸</p>
+    </footer>
 
 </body>
 </html>
