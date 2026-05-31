@@ -104,9 +104,56 @@
                     </li>
                     <li class="flex items-start gap-3">
                         <span class="text-softBlue-500 mt-1 text-xl"><i class="fa-solid fa-square-check"></i></span>
+                        <div><strong>Update Progress RAB:</strong> Wajib meng-update kolom progress di RAB Utama setiap selesai melakukan pembelanjaan.</div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-softBlue-500 mt-1 text-xl"><i class="fa-solid fa-square-check"></i></span>
                         <div><strong>Koordinasi & Pelaporan:</strong> Mengoordinasikan laporan keuangan divisinya kepada Bendahara Umum (Tasya / Wanda) secara disiplin dan transparan.</div>
                     </li>
                 </ul>
+            </div>
+        </section>
+
+        <!-- SECTION RAB DIVISI (PINDAH KE ATAS) -->
+        <section id="rab-divisi" class="space-y-6">
+            <div class="bg-red-600 rounded-3xl p-10 text-center shadow-xl transform hover:-translate-y-2 transition duration-300 border-4 border-red-800 relative overflow-hidden">
+                <div class="absolute -left-10 -bottom-10 text-9xl opacity-10 text-black"><i class="fa-solid fa-list-check"></i></div>
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-wider" style="text-shadow: 2px 2px 0 #7f1d1d;">
+                    RAB DIVISI
+                </h2>
+                
+                <div class="bg-white inline-block px-8 py-5 rounded-xl text-lg font-bold text-gray-800 shadow-lg border-4 border-red-300 text-left max-w-2xl mx-auto">
+                    <p class="mb-4 text-red-700 uppercase font-black text-center border-b-2 border-red-100 pb-2">⚠️ WAJIB UPDATE PROGRESS!</p>
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded shadow-sm border border-gray-300">No Progress</span> 
+                        <span>= Barang belum dibeli / dilakukan.</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded shadow-sm border border-green-300">Clear</span> 
+                        <span>= Barang sudah selesai dibeli / dilakukan.</span>
+                    </div>
+                </div>
+                <br>
+                <a href="https://docs.google.com/spreadsheets/d/1aLFYU24AKoxgMnDO7q50ZOJ4GqQvK-Mqf14-ZD3BII4/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-8 inline-block bg-yellow-400 hover:bg-yellow-300 text-yellow-900 font-black py-4 px-8 rounded-full shadow-lg transition border-4 border-yellow-600 text-xl">
+                    <i class="fa-solid fa-file-excel mr-2"></i> KLIK UNTUK ISI RAB DIVISI
+                </a>
+            </div>
+        </section>
+
+        <!-- SECTION CASHFLOW DIVISI (BARU) -->
+        <section id="cashflow" class="space-y-6">
+            <div class="bg-softBlue-500 rounded-3xl p-10 text-center shadow-xl transform hover:-translate-y-2 transition duration-300 border-4 border-softBlue-800 relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 text-9xl opacity-20 text-white"><i class="fa-solid fa-money-bill-transfer"></i></div>
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-4 uppercase tracking-wider" style="text-shadow: 2px 2px 0 #075985;">
+                    BUKU KAS (CASHFLOW)
+                </h2>
+                <div class="bg-softBlue-800/30 inline-block px-8 py-3 rounded-xl text-lg font-bold text-white shadow-inner border border-softBlue-400 mb-2">
+                    <p>💡 Di dalam link ini sudah disediakan sheet khusus untuk tiap divisinya!</p>
+                </div>
+                <br>
+                <a href="https://docs.google.com/spreadsheets/d/1RGWrQ6EtnhqKooF9KlRF4pwc5yNDCVPYlI78p2cyG3w/edit?usp=drive_link" target="_blank" rel="noopener noreferrer" class="mt-6 inline-block bg-white hover:bg-gray-100 text-softBlue-800 font-black py-4 px-8 rounded-full shadow-lg transition border-4 border-softBlue-200 text-xl">
+                    <i class="fa-solid fa-book mr-2"></i> ISI CASHFLOW DIVISI
+                </a>
             </div>
         </section>
 
@@ -235,13 +282,13 @@
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-center relative">
                     <h3 class="text-xl font-black text-softBlue-800 mb-3 border-b-2 border-gray-100 pb-2"><i class="fa-solid fa-receipt mr-2"></i> Format NOTA Resmi</h3>
-                    <p class="text-sm text-gray-600 mb-3 font-semibold italic">Semua nota (BPPTN & Non-BPPTN) <strong class="text-red-600">WAJIB</strong> mencakup 6 komponen standar berikut:</p>
+                    <p class="text-sm text-gray-600 mb-3 font-semibold italic">Semua nota (BPPTN & Non-BPPTN) <strong class="text-red-600">WAJIB</strong> mencakup komponen standar berikut:</p>
                     <ul class="space-y-2 font-bold text-gray-700 text-sm">
                         <li class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-softBlue-600"></i> Nama Toko</li>
                         <li class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-softBlue-600"></i> Tanggal Transaksi</li>
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle text-softBlue-600 mt-1"></i> <div>Alamat Toko <br><span class="text-xs text-gray-500 font-normal italic">(Jika tidak ada, cari di Google Maps & tulis manual)</span></div></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle text-softBlue-600 mt-1"></i> <div>Alamat Toko <span class="text-red-500 font-black ml-1">(Wajib BPPTN)</span> <br><span class="text-xs text-gray-500 font-normal italic">(Jika tidak ada, cari di Google Maps & tulis manual)</span></div></li>
                         <li class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-softBlue-600"></i> Tanda Tangan (TTD) Kasir</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-softBlue-600"></i> Cap / Stempel Toko</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-softBlue-600"></i> Cap / Stempel Toko <span class="text-red-500 font-black ml-1">(Wajib BPPTN)</span></li>
                         <li class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-softBlue-600"></i> Nama Penjual & No. HP</li>
                     </ul>
                     <div class="mt-4 bg-red-100 p-3 rounded-lg border-2 border-red-300 text-xs text-red-800 font-black uppercase text-center shadow-sm">
@@ -366,23 +413,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </section>
-
-        <section id="deadline" class="space-y-6">
-            <div class="bg-red-600 rounded-3xl p-10 text-center shadow-xl transform hover:-translate-y-2 transition duration-300 border-4 border-red-800 relative overflow-hidden">
-                <div class="absolute -left-10 -bottom-10 text-9xl opacity-10 text-black"><i class="fa-solid fa-triangle-exclamation"></i></div>
-                <h2 class="text-4xl md:text-5xl font-black text-white mb-4 uppercase tracking-wider" style="text-shadow: 2px 2px 0 #7f1d1d;">
-                    DEADLINE RAB DIVISI!
-                </h2>
-                <div class="bg-white inline-block px-10 py-3 rounded-xl text-3xl font-black text-red-700 shadow border-4 border-red-300 animate-pulse uppercase">
-                    Bulan April 2026
-                </div>
-                <p class="text-white font-bold mt-4 text-lg">*(Tanggal pasti menyusul, WAJIB cicil dari sekarang!)*</p>
-                
-                <a href="https://docs.google.com/spreadsheets/d/1aLFYU24AKoxgMnDO7q50ZOJ4GqQvK-Mqf14-ZD3BII4/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-6 inline-block bg-yellow-400 hover:bg-yellow-300 text-yellow-900 font-black py-4 px-8 rounded-full shadow-lg transition border-4 border-yellow-600 text-xl">
-                    <i class="fa-solid fa-file-excel mr-2"></i> KLIK UNTUK ISI RAB DIVISI
-                </a>
             </div>
         </section>
 
