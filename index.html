@@ -123,14 +123,18 @@
                 </h2>
                 
                 <div class="bg-white inline-block px-8 py-5 rounded-xl text-lg font-bold text-gray-800 shadow-lg border-4 border-red-300 text-left max-w-2xl mx-auto">
-                    <p class="mb-4 text-red-700 uppercase font-black text-center border-b-2 border-red-100 pb-2">⚠️ WAJIB UPDATE PROGRESS!</p>
+                    <p class="mb-4 text-red-700 uppercase font-black text-center border-b-2 border-red-100 pb-2">⚠️ WAJIB UPDATE PROGRESS & REALISASI!</p>
                     <div class="flex items-center gap-3 mb-3">
                         <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded shadow-sm border border-gray-300">No Progress</span> 
                         <span>= Barang belum dibeli / dilakukan.</span>
                     </div>
-                    <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-3 mb-3">
                         <span class="bg-green-100 text-green-800 px-3 py-1 rounded shadow-sm border border-green-300">Clear</span> 
                         <span>= Barang sudah selesai dibeli / dilakukan.</span>
+                    </div>
+                    <div class="flex items-center gap-3 border-t-2 border-dashed border-gray-200 pt-3 mt-2">
+                        <span class="bg-softBlue-100 text-softBlue-800 px-3 py-1 rounded shadow-sm border border-softBlue-300 whitespace-nowrap">Keterangan (Realisasi)</span> 
+                        <span>= Wajib isi dengan <strong>harga/nominal asli</strong> barang.</span>
                     </div>
                 </div>
                 <br>
@@ -252,7 +256,7 @@
                 
                 <div class="bg-white rounded-2xl p-6 shadow border-t-4 border-softBlue-500 hover-scale">
                     <h3 class="font-black text-xl mb-2 text-gray-800">1. WAJIB ADA NOTA!</h3>
-                    <p class="text-gray-700">Semua pengeluaran (baik BPPTN maupun Non-BPPTN) <strong>wajib menggunakan nota fisik.</strong> Apabila belanja di tempat yang tidak memiliki nota/stempel, <strong class="text-red-600 bg-red-50 px-1">panitia WAJIB membawa buku nota kosong sendiri</strong> untuk diisi dan dimintakan TTD penjual di tempat!</p>
+                    <p class="text-gray-700">Semua pengeluaran (baik BPPTN maupun Non-BPPTN) <strong>wajib menggunakan nota fisik.</strong> Apabila belanja di tempat yang tidak memiliki nota/stempel, <strong class="text-red-600 bg-red-50 px-1">panitia WAJIB membawa buku nota kosong sendiri (tersedia di SC)</strong> untuk diisi dan dimintakan TTD penjual di tempat!</p>
                 </div>
                 
                 <div class="bg-white rounded-2xl p-6 shadow border-t-4 border-red-500 hover-scale">
@@ -291,8 +295,9 @@
                         <li class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-softBlue-600"></i> Cap / Stempel Toko <span class="text-red-500 font-black ml-1">(Wajib BPPTN)</span></li>
                         <li class="flex items-center gap-2"><i class="fa-solid fa-check-circle text-softBlue-600"></i> Nama Penjual & No. HP</li>
                     </ul>
-                    <div class="mt-4 bg-red-100 p-3 rounded-lg border-2 border-red-300 text-xs text-red-800 font-black uppercase text-center shadow-sm">
-                        ⚠️ Wajib bawa BUKU nota KOSONG sendiri jika toko tidak punya!
+                    <div class="mt-4 bg-red-100 p-3 rounded-lg border-2 border-red-300 text-xs text-red-800 font-black uppercase text-center shadow-sm leading-relaxed">
+                        ⚠️ Wajib bawa BUKU nota KOSONG sendiri jika toko tidak punya! <br>
+                        <span class="text-red-600">(Buku nota kosong sudah disediakan di SC)</span>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
@@ -414,6 +419,7 @@
                     </tbody>
                 </table>
             </div>
+            
         </section>
 
     </main>
